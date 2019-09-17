@@ -19,7 +19,7 @@ commands:
             - ./node_modules
       - run:
           name: Gatsby Build
-          command: gatsby build
+          command: npm run build
 workflows:
   version: 2
   build-deploy:
