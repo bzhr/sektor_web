@@ -9,17 +9,17 @@ commands:
       - checkout
       - restore_cache:
           keys:
-            - yarn-cache-{{ checksum "yarn.lock" }}
+            - dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install Dependencies
-          command: yarn install
+          command: npm install
       - save_cache:
-          key: yarn-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
           name: Gatsby Build
-          command: yarn build
+          command: gatsby build
 workflows:
   version: 2
   build-deploy:
